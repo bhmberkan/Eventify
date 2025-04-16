@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{D7988E4A-2451-4263-BF7E-C46B2443E54A}"
 EndProject
@@ -12,6 +12,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventify.Domain", "Core\Eventify.Domain\Eventify.Domain.csproj", "{AB664B54-5863-4046-BF36-03659A32A59A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventift.Application", "Core\Eventift.Application\Eventift.Application.csproj", "{5D671660-3C62-49DA-A279-45C03ACA1035}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AB664B54-5863-4046-BF36-03659A32A59A} = {AB664B54-5863-4046-BF36-03659A32A59A}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventify.Persistence", "Infrastructure\Eventify.Persistence\Eventify.Persistence.csproj", "{AC6F4261-7F40-4F44-BF98-F5E1B0FA1B65}"
 EndProject
