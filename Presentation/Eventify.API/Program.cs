@@ -2,7 +2,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-// Yeni bir eðitim serisine baþladým tamamen öðrenmek ve kendimi geliþtirmek için.
+
 
 
 builder.Services.AddControllers();
