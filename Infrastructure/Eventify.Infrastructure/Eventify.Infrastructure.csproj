@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Eventift.Application\Eventift.Application.csproj" />
+  </ItemGroup>
+
 </Project>

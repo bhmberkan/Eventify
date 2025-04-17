@@ -23,25 +23,44 @@ namespace Eventify.Persistence.Services
 
         public async Task CreateEventAsync(CreateEventDTO createEventDTO)
         {
-            var newEvent = new Event()
+            if (createEventDTO is not null)
             {
-                Title = createEventDTO.Title,
-                Date = createEventDTO.Date,
-                locaiton = createEventDTO.locaiton
-            };
-            await _context.Events.AddAsync(newEvent);
-            await _context.SaveChangesAsync();
+                var newEvent = new Event()
+                {
+                    Title = createEventDTO.Title,
+                    Date = createEventDTO.Date,
+                    locaiton = createEventDTO.locaiton
+                   
+                };
+                await _context.Events.AddAsync(newEvent);
+                await _context.SaveChangesAsync();
+            }
+            else
+                throw new NullReferenceException();
+          
 
         }
 
         public async Task<IEnumerable<EventDTO>> GetAllEventAsync(Pagination pagination)
         {
+           
             // return await _context.Events.ToListAsync(); // hepsine erişmek istiyoruz ondan patlıyor
-            return await _context.Events.Select(x => new EventDTO()
+            return await _context.Events
+                .AsNoTracking()
+                .Select(x => new EventDTO()
             {
                 Title = x.Title,
                 Date = x.Date,
                 locaiton = x.locaiton
+               // locaiton = x.locaiton  // valueobject kullanıyoruz ef nın kurallarına aykırı bir kullanım 
+               // aşağıda çözüm yöntemi var ya da asnotracking kullanacağız. 
+              /* locaiton = new Domain.ValueObjects.Locaiton()
+               {
+                   City = x.locaiton.City,
+                   District = x.locaiton.District,
+                   PostalCode = x.locaiton.PostalCode,
+                   Street = x.locaiton.Street
+               } */
             })
                 .Skip(pagination.PageCount * pagination.ItemCount) // skip(5) yazarsak 6. dan sonrayı gösterir
                 .Take(pagination.ItemCount)
