@@ -21,7 +21,7 @@ namespace Eventify.Infrastructure.Services
                 foreach (var eventItem in eventItems)
                 {
                     if(eventItem is not null)
-                    stringBuilder.AppendLine($"Event: {eventItem.Title} - Locaiton : {eventItem.locaiton} - Date: {eventItem.Date.ToString("HH:mm - dd/MM/yyyyy")} ");
+                    stringBuilder.AppendLine($"Event: {eventItem.Title} - Locaiton : {eventItem.locaiton.City} - Date: {eventItem.Date.ToString("HH:mm - dd/MM/yyyyy")} ");
 
 
                 }
