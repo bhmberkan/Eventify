@@ -11,7 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\..\Core\Eventift.Application\Eventift.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Eventify.Infrastructure\Eventify.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Eventify.Persistence\Eventify.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
